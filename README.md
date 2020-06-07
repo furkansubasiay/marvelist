@@ -27,10 +27,6 @@ The app uses MVVM [Model-View-ViewModel] architecture to have a unidirectional f
 
 ![](https://github.com/furkansubasiay/marvelist/blob/master/app/src/main/res/raw/architecture.png)
 
-## TODO
-
- - [ ] Unit Test
-
 ## License
 
     Copyright 2020 Furkan SUBAŞIAY.
