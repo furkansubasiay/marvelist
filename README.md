@@ -19,6 +19,10 @@ The app uses MVVM [Model-View-ViewModel] architecture to have a unidirectional f
    - Data Binding - bind UI components in layouts to data sources
    - RoomDB - Local Storage
    - Firebase - Analytics & Crashlytics
+   
+## Clean Simple Architecture
+
+
 
 ## License
 
