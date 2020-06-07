@@ -1,5 +1,5 @@
 
-# [Heading link](https://github.com/furkansubasiay/marvelist "Marvelist")
+# [Marvelist](https://github.com/furkansubasiay/marvelist "Marvelist")
 
 ![](https://img.shields.io/badge/Kotlin-1.3.xxx-brightgreen.svg) ![](https://img.shields.io/badge/Dagger-2.xx-orange.svg) ![](https://img.shields.io/badge/Kotlin--Android--Extensions-plugin-red.svg) ![](https://img.shields.io/badge/Clean--Code-MVVM-brightgreen.svg) ![](https://img.shields.io/badge/API-21%2B-brightgreen.svg?style=flat)
 
