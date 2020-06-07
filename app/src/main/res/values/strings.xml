@@ -6,7 +6,7 @@
     <string name="unknown_error_message">Bilinmeyen bir hata oluştu! Tekrar deneyiniz.</string>
 
     <!--Title-->
-    <string name="comics_title">Çizgi Romanlar</string>
+    <string name="comics_title">Çizgi Romanlar -></string>
     <string name="description_title">Açıklama</string>
     <string name="detail_title">Karakter Detay</string>
 
