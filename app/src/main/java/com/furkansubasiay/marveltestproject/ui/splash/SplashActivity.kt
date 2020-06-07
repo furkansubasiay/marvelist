@@ -31,14 +31,8 @@ class SplashActivity : AppCompatActivity() {
     }
 
     private fun openActivity() {
-        if(NetworkUtils.isInternetAvailable(applicationContext))
-        {
-            startActivity(Intent(this,
-                MainActivity::class.java))
-            this.finish()
-        }
-        else{
-            Toast.makeText(applicationContext,applicationContext.resources.getString(R.string.no_connection_message),Toast.LENGTH_LONG).show()
-        }
+        startActivity(Intent(this,
+            MainActivity::class.java))
+        this.finish()
     }
 }
