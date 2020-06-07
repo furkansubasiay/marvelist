@@ -1,0 +1,127 @@
+apply plugin: 'com.android.application'
+
+apply plugin: 'kotlin-android'
+
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply from: 'obfuscationUtils.gradle'
+apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    lintOptions {
+        abortOnError false
+    }
+
+    kapt {
+        generateStubs = true
+
+    }
+
+
+
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "com.furkansubasiay.marveltestproject"
+        minSdkVersion 21
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'API_BASE_URL', obfuscateJavaToByteString("http://gateway.marvel.com/v1/public/")
+        buildConfigField 'String', 'TS_VALUE', obfuscateJavaToByteString("1")
+        buildConfigField 'String', 'API_HASH_VALUE', obfuscateJavaToByteString("ec5e60e062f0c80fcfa0651118d65350")
+        buildConfigField 'String', 'API_KEY_VALUE', obfuscateJavaToByteString("b5d580c75ec8852209acef213d4c6d11")
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                includeCompileClasspath true
+            }
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    packagingOptions {
+        pickFirst 'META-INF/kotlinx-io.kotlin_module'
+        pickFirst 'META-INF/atomicfu.kotlin_module'
+        pickFirst 'META-INF/kotlinx-coroutines-io.kotlin_module'
+    }
+    dataBinding {
+        enabled = true
+    }
+    useLibrary 'org.apache.http.legacy'
+
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+
+    //Kotlin
+    api "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    //android support & recyclerview
+    api 'androidx.appcompat:appcompat:1.1.0'
+    api 'androidx.core:core-ktx:1.3.0'
+    api 'androidx.constraintlayout:constraintlayout:1.1.3'
+    api 'androidx.cardview:cardview:1.0.0'
+    api 'androidx.recyclerview:recyclerview:1.1.0'
+    api 'androidx.legacy:legacy-support-v4:1.0.0'
+    api "androidx.constraintlayout:constraintlayout:2.0.0-beta6"
+    api "androidx.preference:preference-ktx:1.1.1"
+
+    //LiveData and ViewModel
+    api "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+
+    //Dagger Android
+    def dagger_version = "2.24"
+    api "com.google.dagger:dagger:$dagger_version"
+    api "com.google.dagger:dagger-android:$dagger_version"
+    api "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    //Retrofit
+    api "com.squareup.retrofit2:retrofit:$retrofit_version"
+    api "com.squareup.retrofit2:adapter-rxjava2:$retrofit_version"
+    api "com.squareup.retrofit2:converter-gson:$retrofit_version"
+
+    //Logging
+    api 'com.squareup.okhttp3:logging-interceptor:4.2.2'
+
+    //Rxjava
+    api "io.reactivex.rxjava2:rxjava:$rxjava_version"
+    api "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
+
+    // Glide
+    implementation 'com.github.bumptech.glide:glide:4.10.0'
+
+    // Paging
+    implementation "androidx.paging:paging-runtime:2.1.2"
+
+    //Room
+    api "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    //Firebase
+    api 'com.google.firebase:firebase-analytics-ktx:17.4.3'
+    api 'com.google.firebase:firebase-crashlytics:17.0.1'
+
+    //3th Party Lib
+    api 'com.github.jd-alexander:LikeButton:0.2.3'
+
+    //Testing
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation 'com.google.android.material:material:1.1.0'
+}
+apply plugin: 'com.google.gms.google-services'

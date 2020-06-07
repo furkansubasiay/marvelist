@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "19752367391",
+    "firebase_url": "https://marvelist.firebaseio.com",
+    "project_id": "marvelist",
+    "storage_bucket": "marvelist.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:19752367391:android:ee410cef770abcdb6b2c2a",
+        "android_client_info": {
+          "package_name": "com.furkansubasiay.marveltestproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "19752367391-941qcq50lat0a8nha13sjd8jhigna5qo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.furkansubasiay.marveltestproject",
+            "certificate_hash": "884569e1426efcb454ba933663cd5a85d77fa2fe"
+          }
+        },
+        {
+          "client_id": "19752367391-v98snvbagf7h6um0ujiu4cbebkb0r4iv.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCsHvFkW-8-xYUWisNLH8iPJ2RRvl_Ze2g"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "19752367391-v98snvbagf7h6um0ujiu4cbebkb0r4iv.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

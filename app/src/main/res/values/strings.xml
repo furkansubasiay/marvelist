@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">Marvelist</string>
+
+    <!--Message-->
+    <string name="no_connection_message">Lütfen internet bağlantınızı kontrol ediniz.</string>
+    <string name="unknown_error_message">Bilinmeyen bir hata oluştu! Tekrar deneyiniz.</string>
+
+    <!--Title-->
+    <string name="comics_title">Çizgi Romanlar</string>
+    <string name="description_title">Açıklama</string>
+    <string name="detail_title">Karakter Detay</string>
+
+    <!--Descrition-->
+    <string name="description_empty">Karakter ile ilgili açıklama bulunmamaktadır.</string>
+    <string name="empty_favori_text">Henüz bir favori karakteriniz yok</string>
+    <string name="empty_favori_description">Karakter detayından favori eklemesi yapabilirsiniz.</string>
+
+    <!--Tab Title-->
+    <string name="tab_title_marvelist">Marvelist</string>
+    <string name="tab_title_favorites">Favoriler</string>
+
+
+</resources>
