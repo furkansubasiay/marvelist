@@ -1,11 +1,13 @@
 package com.furkansubasiay.marveltestproject.ui.detail
 
+import android.content.Context
 import android.util.Log
 import android.widget.ImageView
 import androidx.databinding.BindingAdapter
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import com.bumptech.glide.Glide
+import com.furkansubasiay.marveltestproject.R
 import com.furkansubasiay.marveltestproject.db.MarvelDatabase
 import com.furkansubasiay.marveltestproject.db.entity.MarvelCharacter
 import com.furkansubasiay.marveltestproject.model.comics.ComicsData
@@ -21,7 +23,7 @@ import javax.inject.Inject
  */
 class CharacterDetailViewModel @Inject constructor(
     private val repos: Repository,
-    val db: MarvelDatabase
+    val db: MarvelDatabase, val context : Context
 ) : BaseViewModel() {
 
     var characterId: Long = -1L
@@ -74,7 +76,13 @@ class CharacterDetailViewModel @Inject constructor(
     private fun fillData() {
         if (resultsLocalLiveData.value != null) {
             _title.value = resultsLocalLiveData.value!!.name
-            _description.value = resultsLocalLiveData.value!!.description
+            if(resultsLocalLiveData.value!!.description.equals("")){
+                _description.value = context.resources.getString(R.string.description_empty)
+            }
+            else
+            {
+                _description.value = resultsLocalLiveData.value!!.description
+            }
             _imgUrl.value = resultsLocalLiveData.value!!.character_img_url
             _isFavorite.value =resultsLocalLiveData.value!!.is_favorite
         }
