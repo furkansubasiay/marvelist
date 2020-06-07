@@ -18,7 +18,7 @@ The app uses MVVM [Model-View-ViewModel] architecture to have a unidirectional f
    - LiveData - use LiveData to see UI update with data changes.
    - Data Binding - bind UI components in layouts to data sources
    - Room Database - Local Storage
-   - Firebase - Analytics & Craslytics
+   - Firebase - Analytics & Crashlytics
 
 ## License
 
