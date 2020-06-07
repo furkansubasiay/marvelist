@@ -29,7 +29,7 @@ The app uses MVVM [Model-View-ViewModel] architecture to have a unidirectional f
 
 ## TODO
 
- - Unit Test
+ - [ ] Unit Test
 
 ## License
 
