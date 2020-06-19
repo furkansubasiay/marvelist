@@ -14,13 +14,13 @@ The app uses MVVM [Model-View-ViewModel] architecture to have a unidirectional f
 
 ## Libraries and tools
 
-   - Dagger 2 - Used to provide dependency injection
-   - Retrofit 2 - OkHttp3 - request/response API
-   - Glide - for image loading.
-   - RxJava 2 - reactive programming paradigm
-   - LiveData - use LiveData to see UI update with data changes.
-   - Data Binding - bind UI components in layouts to data sources
-   - RoomDB - Local Storage
+   - RxJava 2
+   - Retrofit 2 - OkHttp3 
+   - LiveData 
+   - Data Binding 
+   - RoomDB
+   - Dagger 2 - DI
+   - Glide 
    - Firebase - Analytics & Crashlytics
    
 ## Clean Simple Architecture
