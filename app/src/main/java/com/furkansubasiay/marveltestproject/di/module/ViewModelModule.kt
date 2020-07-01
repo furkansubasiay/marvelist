@@ -3,9 +3,9 @@ package com.furkansubasiay.marveltestproject.di.module
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.furkansubasiay.marveltestproject.di.key.ViewModelKey
-import com.furkansubasiay.marveltestproject.ui.detail.CharacterDetailViewModel
-import com.furkansubasiay.marveltestproject.ui.favoriteslist.FavoritesViewModel
-import com.furkansubasiay.marveltestproject.ui.herolist.CharactersViewModel
+import com.furkansubasiay.marveltestproject.vm.CharacterDetailViewModel
+import com.furkansubasiay.marveltestproject.vm.FavoritesViewModel
+import com.furkansubasiay.marveltestproject.vm.CharactersViewModel
 import com.furkansubasiay.marveltestproject.util.ViewModelFactory
 import dagger.Binds
 import dagger.Module

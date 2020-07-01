@@ -5,7 +5,7 @@
     <data>
         <variable
             name="viewModel"
-            type="com.furkansubasiay.marveltestproject.ui.favoriteslist.FavoritesViewModel" />
+            type="com.furkansubasiay.marveltestproject.vm.FavoritesViewModel" />
     </data>
 
 

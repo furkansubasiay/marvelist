@@ -1,4 +1,4 @@
-package com.furkansubasiay.marveltestproject.ui.favoriteslist
+package com.furkansubasiay.marveltestproject.vm
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

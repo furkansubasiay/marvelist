@@ -7,7 +7,7 @@
 
         <variable
             name="viewModel"
-            type="com.furkansubasiay.marveltestproject.ui.detail.CharacterDetailViewModel" />
+            type="com.furkansubasiay.marveltestproject.vm.CharacterDetailViewModel" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

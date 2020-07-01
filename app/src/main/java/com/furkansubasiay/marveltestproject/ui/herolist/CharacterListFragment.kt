@@ -5,7 +5,6 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
@@ -18,11 +17,14 @@ import com.furkansubasiay.marveltestproject.model.character.MarvelCharacterItem
 import com.furkansubasiay.marveltestproject.ui.base.BaseFragment
 import com.furkansubasiay.marveltestproject.ui.detail.CharacterDetailFragment
 import com.furkansubasiay.marveltestproject.util.AnalyticsUtils
+import com.furkansubasiay.marveltestproject.util.ItemClickListener
+import com.furkansubasiay.marveltestproject.vm.CharactersViewModel
 import dagger.android.DispatchingAndroidInjector
 import javax.inject.Inject
 
 
-class CharacterListFragment : BaseFragment() {
+class CharacterListFragment : BaseFragment(), ItemClickListener<MarvelCharacterItem> {
+
 
     lateinit var binding: FragmentCharacterListBinding
     var viewModel: CharactersViewModel? = null
@@ -61,7 +63,7 @@ class CharacterListFragment : BaseFragment() {
             ViewModelProviders.of(this, viewModelFactory).get(CharactersViewModel::class.java)
         binding.viewModel = viewModel
         binding.lifecycleOwner = this
-        listView = view.findViewById<RecyclerView>(R.id.character_list)
+        listView = binding.characterList
         listView.layoutManager =GridLayoutManager(context, columnCount)
         listView.addOnScrollListener(object : RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
@@ -77,19 +79,16 @@ class CharacterListFragment : BaseFragment() {
                 }
             }
         })
-        adapter = CharacterAdapter(resultList,
-            object : CharacterAdapter.OnItemClickListener {
-                override fun onClick(marvelCharacter: MarvelCharacterItem) {
-                    analyticsUtils.logScreenViews(context!!, AnalyticsUtils.SCREEN_NAMES.marvelist,marvelCharacter.character_id)
-                    changeFragment(marvelCharacter)
-
-                }
-            })
+        adapter = CharacterAdapter(resultList,this)
         listView.adapter=adapter
         if(resultList.isNullOrEmpty())
         {
             doApiCall()
         }
+    }
+    override fun onClick(item: MarvelCharacterItem) {
+        analyticsUtils.logScreenViews(context!!, AnalyticsUtils.SCREEN_NAMES.marvelist,item.character_id)
+        changeFragment(item)
     }
 
     fun doApiCall()

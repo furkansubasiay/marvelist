@@ -13,11 +13,18 @@ data class MarvelCharacterItem(
     @SerializedName("thumbnail") val thumbnail: Thumbnail
 )
 
+
 data class Thumbnail(
     @SerializedName("path")val path:String,
     @SerializedName("extension") val extension:String
-
 )
+{
+    override fun toString(): String {
+        return  String.format("%s.%s",path,extension)
+    }
+}
+
+
 
 /*"thumbnail": {
     "path": "http://i.annihil.us/u/prod/marvel/i/mg/c/e0/535fecbbb9784",

@@ -5,46 +5,50 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.AlphaAnimation
-import android.widget.ImageView
-import android.widget.TextView
-import com.bumptech.glide.Glide
+
+import androidx.databinding.DataBindingUtil
+import androidx.databinding.ViewDataBinding
+
+import com.furkansubasiay.marveltestproject.BR
 import com.furkansubasiay.marveltestproject.R
 import com.furkansubasiay.marveltestproject.model.character.MarvelCharacterItem
+import com.furkansubasiay.marveltestproject.util.ItemClickListener
 
 
+class CharacterAdapter : RecyclerView.Adapter<CharacterAdapter.ViewHolder> {
+    private lateinit var marvelCharacters: MutableList<MarvelCharacterItem>
+    private var listener: ItemClickListener<MarvelCharacterItem>? = null
 
+    constructor() : super()
 
-class CharacterAdapter(private var marvelCharacters: List<MarvelCharacterItem>, val listener: OnItemClickListener) : RecyclerView.Adapter<CharacterAdapter.ViewHolder>() {
-
-    interface OnItemClickListener {
-        fun onClick(marvelCharacter: MarvelCharacterItem)
+    constructor(list: MutableList<MarvelCharacterItem>, listener: ItemClickListener<MarvelCharacterItem>) : super() {
+        this.marvelCharacters = list
+        this.listener = listener
     }
-    /*init {
-        mOnClickListener = View.OnClickListener { v ->
-            //val item = v.tag as DummyItem
 
-            //mListener?.onListFragmentInteraction(item)
-        }
-    }*/
-    fun setList(marvelCharacters1: List<MarvelCharacterItem>)
+    fun setList(marvelCharacters1: MutableList<MarvelCharacterItem>)
     {
-        this.marvelCharacters =marvelCharacters1
-    }
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.character_item, parent, false)
-        return ViewHolder(view)
+        marvelCharacters =marvelCharacters1
+        notifyDataSetChanged()
     }
 
+    override fun onCreateViewHolder(viewGroup: ViewGroup, viewType: Int): ViewHolder {
+        val binding = DataBindingUtil.inflate<ViewDataBinding>(
+            LayoutInflater.from(viewGroup.context), R.layout.character_item, viewGroup, false
+        )
+        return ViewHolder(binding)
+    }
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         setFadeAnimation(holder.itemView);
-        val item = marvelCharacters[position]
-        holder.mName.text = item.name
+        if (getItem(position) != null) {
+            val item = getItem(position)
+            holder.binding.setVariable(BR.viewModel, item)
 
-        Glide.with(holder.mImage.context)
-            .load(String.format("%s%s%s",item.thumbnail.path,".",item.thumbnail.extension))
-            .into(holder.mImage)
-        holder.click(item, listener, position)
+            if (listener != null)
+                holder.binding.setVariable(BR.clickListener, listener)
+
+            holder.binding.executePendingBindings()
+        }
 
     }
 
@@ -54,16 +58,14 @@ class CharacterAdapter(private var marvelCharacters: List<MarvelCharacterItem>, 
         view.startAnimation(anim)
     }
 
-    override fun getItemCount(): Int = marvelCharacters.size
-
-    class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val mName: TextView = itemView.findViewById<TextView>(R.id.txt_name)
-        val mImage:ImageView = itemView.findViewById(R.id.img_character)
-        fun click(marvelCharacter: MarvelCharacterItem, listener: OnItemClickListener, position: Int) {
-            itemView.setOnClickListener {
-                listener.onClick(marvelCharacter)
-
-            }
-        }
+    override fun getItemCount(): Int {
+        return if(::marvelCharacters.isInitialized) marvelCharacters.size else 0
     }
+
+    inner class ViewHolder(val binding: ViewDataBinding) : RecyclerView.ViewHolder(binding.root)
+
+    fun getItem(index: Int): MarvelCharacterItem? {
+        return if (index < marvelCharacters.size) marvelCharacters[index] else null
+    }
+
 }

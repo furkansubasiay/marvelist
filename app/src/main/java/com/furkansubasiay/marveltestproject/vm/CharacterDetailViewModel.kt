@@ -1,4 +1,4 @@
-package com.furkansubasiay.marveltestproject.ui.detail
+package com.furkansubasiay.marveltestproject.vm
 
 import android.content.Context
 import android.util.Log

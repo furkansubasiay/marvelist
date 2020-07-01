@@ -17,6 +17,7 @@ import com.furkansubasiay.marveltestproject.R
 import com.furkansubasiay.marveltestproject.databinding.FragmentCharacterDetailBinding
 import com.furkansubasiay.marveltestproject.ui.base.BaseFragment
 import com.furkansubasiay.marveltestproject.ui.detail.comics.ComicsAdapter
+import com.furkansubasiay.marveltestproject.vm.CharacterDetailViewModel
 import com.like.LikeButton
 import com.like.OnLikeListener
 

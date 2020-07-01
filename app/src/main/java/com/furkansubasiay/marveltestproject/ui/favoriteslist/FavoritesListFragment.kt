@@ -2,18 +2,15 @@ package com.furkansubasiay.marveltestproject.ui.favoriteslist
 
 
 import android.annotation.SuppressLint
-import android.opengl.Visibility
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 import com.furkansubasiay.marveltestproject.R
@@ -22,6 +19,7 @@ import com.furkansubasiay.marveltestproject.db.entity.MarvelCharacter
 import com.furkansubasiay.marveltestproject.ui.base.BaseFragment
 import com.furkansubasiay.marveltestproject.ui.detail.CharacterDetailFragment
 import com.furkansubasiay.marveltestproject.util.AnalyticsUtils
+import com.furkansubasiay.marveltestproject.vm.FavoritesViewModel
 import dagger.android.DispatchingAndroidInjector
 import javax.inject.Inject
 

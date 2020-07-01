@@ -82,7 +82,6 @@ dependencies {
     api "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
 
     //Dagger Android
-    def dagger_version = "2.24"
     api "com.google.dagger:dagger:$dagger_version"
     api "com.google.dagger:dagger-android:$dagger_version"
     api "com.google.dagger:dagger-android-support:$dagger_version"
